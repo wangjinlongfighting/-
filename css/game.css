@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-size: 14px;
+    font-family: '微软雅黑',"Microsoft YaHei";
+}
+#btnGroup {
+    width: 100%;
+    text-align: center;
+    padding-top: 0.8rem;
+}
+#btnGroup > button {
+    width: 80px;
+    height:50px;
+    font-size: 0.36rem;
+    text-align: center;
+    border:0;
+    color: #ffffff;
+}
+#btnGroup > .gameSlow {
+    background-color: #00d400;
+}
+#btnGroup > .gameAdd {
+    background-color: #d30000;
+}
+#game_section {
+    margin:0 auto;
+    width: 300px;
+    height:350px;
+    overflow: hidden;
+}
+#game_panel{
+    position: relative;
+    margin:0.5rem auto 0 auto;
+}
+
+#game_panel > .box {
+    position: absolute;
+    background-color: #cccccc;
+    border:1px #fff solid;
+}
+
+.diglet_up{
+    position: absolute;
+    background:url("../images/outside.png") no-repeat;
+    background-size:60px 60px;
+    cursor: pointer;
+}
+.diglet_out{
+    position: absolute;
+    background:url("../images/inside.png") no-repeat;
+    background-size:60px 60px;
+}
+#speedDecription,.score{
+    width: 100%;
+    text-align: center;
+    color: #ff0000;
+    font-size: 0.6rem;
+}
+#startBtn {
+    width: 100%;
+    text-align: center;
+}
+.start{
+    clear: both;
+    border:0;
+    background-color: #00d400;
+    color: #ffffff;
+    font-size: 0.8rem;
+    width:300px;
+    text-align: center;
+    text-decoration: none;
+    padding:0.3rem 0;
+    border-radius: 0.2rem;
+}
+.end{
+    position: absolute;
+    width:100%;
+    height:300px;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height:300px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.5);
+}
