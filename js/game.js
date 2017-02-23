@@ -53,20 +53,23 @@ function _click_box(_this) {
 }
 
 function _gameStart(_this) {
-    class_game._start();
-    var _count = 29;
-    _this.innerHTML = _count + '秒';
-    var _startTime = setInterval(function () {
-        _count -= 1;
+    if(_this.innerHTML=='再加30秒'||_this.innerHTML=='30秒计时开始'){
+        class_game._start();
+        var _count = 29;
         _this.innerHTML = _count + '秒';
-        if(_this.innerHTML == '0秒' ){
-            _this.innerHTML ='再加30秒';
-            clearTimeout(_startTime);
-            clearTimeout(class_game._gameIng);
-            document.getElementsByClassName('start')[0].style.backgroundColor = '#cccccc';
-            document.getElementsByClassName('end')[0].style.display = 'block';
-        }
-    },1000);
+        var _startTime = setInterval(function () {
+            _count -= 1;
+            _this.innerHTML = _count + '秒';
+            if(_this.innerHTML == '0秒' ){
+                _this.innerHTML ='再加30秒';
+                clearTimeout(_startTime);
+                clearTimeout(class_game._gameIng);
+                document.getElementsByClassName('start')[0].style.backgroundColor = '#cccccc';
+                document.getElementsByClassName('end')[0].style.display = 'block';
+            }
+        },1000);
+    }
+
 
 }
 
@@ -79,27 +82,6 @@ var class_game = {
     _Score:0,
     _gameIng:function () {
 
-    },
-    _init:function () {
-        this._createBtn(); //创建加减速按钮
-        this._createPanel(); //创建画布
-        this._createMange(); //创建得分情况
-        this._createStart(); //创建开始按钮
-    },
-    _start:function () {
-        document.getElementsByClassName('end')[0].style.display = 'none';
-        this._createDialet(); //随机生成地鼠
-    },
-    _createStart:function () {
-        var _startBtn = class_base._create('div');
-        _startBtn.setAttribute('id','startBtn');
-        class_base._get('game_section').parentNode.appendChild(_startBtn);
-        var _Start = class_base._create('button');
-        _Start.setAttribute('class','start');
-        _Start.setAttribute('href','javascript:');
-        _Start.setAttribute('onclick','_gameStart(this)');
-        _Start.innerHTML = '30秒计时开始';
-        class_base._get('startBtn').appendChild(_Start);
     },
     _createBtn:function () {
         //创建加减速按钮
@@ -165,6 +147,27 @@ var class_game = {
                 class_base._get(_index).setAttribute('class','box');  // 添加类名  不兼容IE
             }
         }
+    },
+    _init:function () {
+        this._createBtn(); //创建加减速按钮
+        this._createPanel(); //创建画布
+        this._createMange(); //创建得分情况
+        this._createStart(); //创建开始按钮
+    },
+    _start:function () {
+        document.getElementsByClassName('end')[0].style.display = 'none';
+        this._createDialet(); //随机生成地鼠
+    },
+    _createStart:function () {
+        var _startBtn = class_base._create('div');
+        _startBtn.setAttribute('id','startBtn');
+        class_base._get('game_section').parentNode.appendChild(_startBtn);
+        var _Start = class_base._create('button');
+        _Start.setAttribute('class','start');
+        _Start.setAttribute('href','javascript:');
+        _Start.setAttribute('onclick','_gameStart(this)');
+        _Start.innerHTML = '30秒计时开始';
+        class_base._get('startBtn').appendChild(_Start);
     }
 };
 
